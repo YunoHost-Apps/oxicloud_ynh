@@ -37,7 +37,8 @@ chmod +x "$install_dir/oxicloud"
 ynh_script_progression "Updating $app's configuration files..."
 
 ynh_config_add --template="oxicloud.env" --destination="$install_dir/oxicloud.env"
-chmod 0640 $install_dir/oxicloud.env
+
+chmod 0640 "$install_dir/oxicloud.env"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
