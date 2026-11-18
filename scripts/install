@@ -31,6 +31,8 @@ ynh_script_progression "Adding $app's configuration files..."
 
 ynh_config_add --template="oxicloud.env" --destination="$install_dir/oxicloud.env"
 
+chmod 0640 "$install_dir/oxicloud.env"
+
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
