@@ -27,7 +27,7 @@ ynh_app_setting_set_default --key=main_domain --value=$(cat /etc/yunohost/curren
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-ynh_setup_source --dest_dir="$install_dir" --full_replace --keep=".env"
+ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="oxicloud.env"
 
 chmod +x "$install_dir/oxicloud"
 
@@ -36,7 +36,8 @@ chmod +x "$install_dir/oxicloud"
 #=================================================
 ynh_script_progression "Updating $app's configuration files..."
 
-ynh_config_add --template="oxicloud.env" --destination="$install_dir/.env"
+ynh_config_add --template="oxicloud.env" --destination="$install_dir/oxicloud.env"
+chmod 0640 $install_dir/oxicloud.env
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
