@@ -52,7 +52,7 @@ ram.runtime = "50M"
     amd64.url = "https://github.com/AtalayaLabs/OxiCloud/releases/download/v0.10.0/oxicloud-0.10.0-x86_64-unknown-linux-musl.tar.gz"
     amd64.sha256 = "4decd0cc6c07e370a7b57ac4d17432468380255e567889e0f243e042fd4441f9"
     arm64.url = "https://github.com/AtalayaLabs/OxiCloud/releases/download/v0.10.0/oxicloud-0.10.0-aarch64-unknown-linux-musl.tar.gz"
-    arm64.ha256 = "bb83a8aad285a624dfd6d3257ed933a872900a6b8422a2cb180aa4a20f1d5061"
+    arm64.sha256 = "bb83a8aad285a624dfd6d3257ed933a872900a6b8422a2cb180aa4a20f1d5061"
 
     autoupdate.strategy = "latest_github_tag"
 
