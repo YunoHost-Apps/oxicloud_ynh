@@ -37,6 +37,9 @@ ram.runtime = "90M"
     type = "group"
     default = "visitors"
 
+    [install.admin]
+    type = "user"
+    
     [install.language]
     ask.en = "Choose the application language"
     ask.fr = "Choisissez la langue de l'application"
@@ -54,7 +57,9 @@ ram.runtime = "90M"
     arm64.url = "https://github.com/AtalayaLabs/OxiCloud/releases/download/v0.10.0/oxicloud-0.10.0-aarch64-unknown-linux-musl.tar.gz"
     arm64.sha256 = "bb83a8aad285a624dfd6d3257ed933a872900a6b8422a2cb180aa4a20f1d5061"
 
-    autoupdate.strategy = "latest_github_tag"
+    autoupdate.strategy = "latest_github_release"
+    autoupdate.asset.amd64 = "oxicloud-\\d+\\.\\d+-x86_64-unknown-linux-musl.tar.gz"
+    autoupdate.asset.arm64 = "oxicloud-\\d+\\.\\d+-aarch64-unknown-linux-musl.tar.gz"
 
     [resources.system_user]
     allow_email = true

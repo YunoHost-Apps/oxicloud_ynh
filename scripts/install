@@ -11,6 +11,8 @@ source /usr/share/yunohost/helpers
 #=================================================
 
 secret=$(ynh_string_random --length=32)
+email=$(ynh_user_get_info --username=$admin --key=mail)
+main_domain=$(cat /etc/yunohost/current_host)
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -28,6 +30,8 @@ chmod +x "$install_dir/oxicloud"
 ynh_script_progression "Adding $app's configuration files..."
 
 ynh_config_add --template="oxicloud.env" --destination="$install_dir/oxicloud.env"
+
+chmod 0640 "$install_dir/oxicloud.env"
 
 #=================================================
 # SYSTEM CONFIGURATION
