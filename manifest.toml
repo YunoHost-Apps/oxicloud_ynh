@@ -37,6 +37,9 @@ ram.runtime = "90M"
     type = "group"
     default = "visitors"
 
+    [install.admin]
+    type = "user"
+    
     [install.language]
     ask.en = "Choose the application language"
     ask.fr = "Choisissez la langue de l'application"
