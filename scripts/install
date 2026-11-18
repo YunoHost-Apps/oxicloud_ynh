@@ -6,6 +6,10 @@
 
 source /usr/share/yunohost/helpers
 
+#=================================================
+# INITIALIZE AND STORE SETTINGS
+#=================================================
+
 secret=$(ynh_string_random --length=32)
 
 #=================================================
