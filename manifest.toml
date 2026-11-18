@@ -25,7 +25,7 @@ multi_instance = true
 ldap = false
 sso = false
 
-disk = "50M"
+disk = "100M"
 ram.build = "50M"
 ram.runtime = "50M"
 
@@ -36,9 +36,6 @@ ram.runtime = "50M"
     [install.path]
     type = "path"
     default = "/oxicloud"
-
-    [install.admin]
-    type = "user"
 
     [install.init_main_permission]
     type = "group"
