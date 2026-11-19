@@ -7,7 +7,7 @@ name = "OxiCloud"
 description.en = "Secure & lightweight self-hosted cloud storage"
 description.fr = "Service de stockage cloud auto-hébergé, sécurisé et léger"
 
-version = "0.10.0~ynh1"
+version = "0.10.1~ynh1"
 
 maintainers = ["eric_G"]
 
@@ -56,14 +56,14 @@ ram.runtime = "90M"
     [resources.sources]
 
     [resources.sources.main]
-    amd64.url = "https://github.com/AtalayaLabs/OxiCloud/releases/download/v0.10.0/oxicloud-0.10.0-x86_64-unknown-linux-musl.tar.gz"
-    amd64.sha256 = "4decd0cc6c07e370a7b57ac4d17432468380255e567889e0f243e042fd4441f9"
-    arm64.url = "https://github.com/AtalayaLabs/OxiCloud/releases/download/v0.10.0/oxicloud-0.10.0-aarch64-unknown-linux-musl.tar.gz"
-    arm64.sha256 = "bb83a8aad285a624dfd6d3257ed933a872900a6b8422a2cb180aa4a20f1d5061"
+    amd64.url = "https://github.com/AtalayaLabs/OxiCloud/releases/download/v0.10.1/oxicloud-0.10.1-x86_64-unknown-linux-musl.tar.gz"
+    amd64.sha256 = "d1f53e1fb2afd00606fc3940fe82eee04886bfbf87d0d4bc820d955fc55a49cc"
+    arm64.url = "https://github.com/AtalayaLabs/OxiCloud/releases/download/v0.10.1/oxicloud-0.10.1-aarch64-unknown-linux-musl.tar.gz"
+    arm64.sha256 = "b460f75c590dc9bbe789b3b64ef8167607a24ec38250ea908a6f914d45ee85b0"
 
     autoupdate.strategy = "latest_github_release"
-    autoupdate.asset.amd64 = "oxicloud-\\d+\\.\\d+-x86_64-unknown-linux-musl.tar.gz"
-    autoupdate.asset.arm64 = "oxicloud-\\d+\\.\\d+-aarch64-unknown-linux-musl.tar.gz"
+    autoupdate.asset.amd64 = "oxicloud-\\d+\\.\\d+-x86_64-unknown-linux-musl\\.tar\\.gz"
+    autoupdate.asset.arm64 = "oxicloud-\\d+\\.\\d+-aarch64-unknown-linux-musl\\.tar\\.gz"
 
     [resources.system_user]
     allow_email = true
