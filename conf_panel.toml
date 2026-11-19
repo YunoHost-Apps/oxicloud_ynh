@@ -1,0 +1,96 @@
+version = "1.0"
+
+[main]
+name.en = "Configuration panel"
+name.fr = "Panneau de configuration"
+services = ["__APP__", "nginx"]
+
+[main.document_server]
+name.en = "Office document editing"
+name.fr = "Edition de documents office"
+
+[main.document_server.enable_editing]
+    type = "boolean"
+    ask.en = "Enable office document editing"
+    ask.fr = "Activer l'édition de documents office"
+    default = true
+    bind = "OXICLOUD_WOPI_ENABLED:__INSTALL_DIR__/oxicloud.env"
+
+[main.document_server.url]
+    type = "url"
+    ask.en = "Document server URL"
+    ask.fr = "Adresse du serveur de documents"
+    default = "https://mydocumentserver.tld/hosting/discovery"
+    visible = "enable_editing"
+    bind = "OXICLOUD_WOPI_DISCOVERY_URL:__INSTALL_DIR__/oxicloud.env"
+
+[main.nextcloud_compatibility]
+    name.en = "Nextcloud-compatible API"
+    name.fr = "API de compatibilité avec Nextcloud"
+    help.en = "Enables the Nextcloud-compatible API layer for desktop sync, mobile apps, Nextcloud Talk, etc."
+    help.fr = "Active le mode de compatibilité Nextcloud pour utiliser les clients de synchronisation nextcloud, Nextcloud Talk, etc."
+
+[main.nextcloud_compatibility.enable_compatibility]
+    type = "boolean"
+    ask.en = "Enable"
+    ask.fr = "Activer"
+    default = false
+    bind = "OXICLOUD_NEXTCLOUD_ENABLED:__INSTALL_DIR__/oxicloud.env"
+
+[main.nextcloud_compatibility.version]
+    type = "string"
+    ask.en = "Nextcloud version"
+    ask.fr = "Version de Nextcloud"
+    visible = "enable_compatibility"
+    bind = "OXICLOUD_NEXTCLOUD_VERSION:__INSTALL_DIR__/oxicloud.env"
+
+
+[main.storage]
+name.en = "Storage"
+name.fr = "Stockage"
+
+    [main.storage.storage_backend]
+    ask.en = "Storage backends comma separated"
+    ask.fr = "Storage backends comma separated"
+    type = "string"
+    bind = "OXICLOUD_STORAGE_ENTRIES:__INSTALL_DIR__/oxicloud.env"
+
+[main.storage_s3]
+name.en = "S3 storage"
+name.fr = "Stockage S3"
+
+    [main.storage_s3.backend]
+    ask.en = "S3 backend"
+    ask.fr = "S3 backend"
+    bind = "OXICLOUD_STORAGE_s3_prod_BACKEND:__INSTALL_DIR__/oxicloud.env"
+
+    [main.storage_s3.endpoint]
+    ask.en = "S3 endpoint"
+    ask.fr = "S3 endpoint"
+    bind = "OXICLOUD_STORAGE_s3_prod_S3_ENDPOINT_URL:__INSTALL_DIR__/oxicloud.env"
+
+    [main.storage_s3.region]
+    ask.en = "S3 region"
+    ask.fr = "S3 region"
+    bind = "OXICLOUD_STORAGE_s3_prod_S3_REGION:__INSTALL_DIR__/oxicloud.env"
+
+    [main.storage_s3.bucket_name]
+    ask.en = "Bucket name"
+    ask.fr = "Nom du bucket"
+    bind = "OXICLOUD_STORAGE_s3_prod_S3_BUCKET:__INSTALL_DIR__/oxicloud.env"
+
+    [main.storage_s3.key_id]
+    ask.en = "S3 key id"
+    ask.fr = "S3 key id"
+    bind = "OXICLOUD_STORAGE_s3_prod_S3_ACCESS_KEY:__INSTALL_DIR__/oxicloud.env"
+
+    [main.storage_s3.secret_key]
+    ask.en = "S3 secret key"
+    ask.fr = "S3 secret key"
+    bind = "OXICLOUD_STORAGE_s3_prod_S3_SECRET_KEY:__INSTALL_DIR__/oxicloud.env"
+
+    [main.storage_s3.force_path_style]
+    ask.en = "Force path style"
+    ask.fr = "Force path style"
+    type = "boolean"
+    bind = "OXICLOUD_STORAGE_s3_prod_S3_FORCE_PATH_STYLE:__INSTALL_DIR__/oxicloud.env"
