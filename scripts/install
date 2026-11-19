@@ -28,10 +28,12 @@ chmod +x "$install_dir/oxicloud"
 #=================================================
 # APP INITIAL CONFIGURATION
 #=================================================
-ynh_script_progression "Adding $app's configuration files..."
+ynh_script_progression "Hardening $app's security..."
+
 opaque_setup=$("ynh_exec_as_app ./oxicloud opaque setup")
 ynh_app_setting_set --key=opaque_setup --value="$opaque_setup"
 
+ynh_script_progression "Adding $app's configuration files..."
 
 ynh_config_add --template="oxicloud.env" --destination="$install_dir/oxicloud.env"
 ynh_config_add --template="oxicloud.local.env" --destination="$install_dir/oxicloud.local.env"
