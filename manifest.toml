@@ -58,8 +58,8 @@ ram.runtime = "90M"
     arm64.sha256 = "b460f75c590dc9bbe789b3b64ef8167607a24ec38250ea908a6f914d45ee85b0"
 
     autoupdate.strategy = "latest_github_release"
-    autoupdate.asset.amd64 = "oxicloud-\\d+\\.\\d+-x86_64-unknown-linux-musl.tar.gz"
-    autoupdate.asset.arm64 = "oxicloud-\\d+\\.\\d+-aarch64-unknown-linux-musl.tar.gz"
+    autoupdate.asset.amd64 = "oxicloud-\\d+\\.\\d+-x86_64-unknown-linux-musl\\.tar\\.gz"
+    autoupdate.asset.arm64 = "oxicloud-\\d+\\.\\d+-aarch64-unknown-linux-musl\\.tar\\.gz"
 
     [resources.system_user]
     allow_email = true
