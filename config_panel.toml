@@ -7,40 +7,42 @@ services = ["__APP__", "nginx"]
 
     [main.document_server]
     name.en = "Office document editing"
-    name.fr = "Edition de documents office"
+    name.fr = "Édition de documents office"
 
-    [main.document_server.enable_editing]
-        type = "boolean"
+        [main.document_server.enable_editing]
         ask.en = "Enable office document editing"
         ask.fr = "Activer l'édition de documents office"
+        type = "boolean"
         default = true
         bind = "OXICLOUD_WOPI_ENABLED:__INSTALL_DIR__/oxicloud.local.env"
 
-    [main.document_server.url]
-        type = "url"
+        [main.document_server.url]
         ask.en = "Document server URL"
         ask.fr = "Adresse du serveur de documents"
-        default = "https://mydocumentserver.tld/hosting/discovery"
+        type = "url"
+        example = "https://mydocumentserver.tld/hosting/discovery"
         visible = "enable_editing"
         bind = "OXICLOUD_WOPI_DISCOVERY_URL:__INSTALL_DIR__/oxicloud.local.env"
 
-    [main.nextcloud_compatibility]
-        name.en = "Nextcloud compatibility"
-        name.fr = "Compatibilité avec Nextcloud"
 
-    [main.nextcloud_compatibility.enable_compatibility]
+    [main.nextcloud_compatibility]
+    name.en = "Nextcloud compatibility"
+    name.fr = "Compatibilité avec Nextcloud"
+
+        [main.nextcloud_compatibility.enable_compatibility]
+        ask.en = "Enable Nextcloud compatibility"
+        ask.fr = "Activer la compatibilité avec Nextcloud"
         type = "boolean"
-        ask.en = "Enable"
-        ask.fr = "Activer"
+        default = false
         help.en = "Enables the Nextcloud-compatible API layer for desktop sync, mobile apps, Nextcloud Talk, etc."
         help.fr = "Active le mode de compatibilité Nextcloud pour utiliser les clients de synchronisation nextcloud, Nextcloud Talk, etc."
-        default = false
         bind = "OXICLOUD_ENABLE_NEXTCLOUD:__INSTALL_DIR__/oxicloud.local.env"
 
-    [main.nextcloud_compatibility.version]
-        type = "string"
+        [main.nextcloud_compatibility.version]
         ask.en = "Nextcloud version"
         ask.fr = "Version de Nextcloud"
+        type = "string"
+        default = "28.0.4"
         visible = "enable_compatibility"
         bind = "OXICLOUD_NEXTCLOUD_VERSION:__INSTALL_DIR__/oxicloud.local.env"
 
@@ -52,10 +54,11 @@ services = ["__APP__", "nginx"]
         [main.storage.storage_backend]
         ask.en = "Storage backends"
         ask.fr = "Storage backends"
-        help.en = "a comma-separated allowlist of names, e.g. local_main,s3_prod. Default is local_main."
-        help.fr = "liste de noms séparés par des virgules, par ex. : local_main,s3_prod. La valeur par défaut est local_main."
+        help.en = "A comma-separated allowlist of names, e.g. local_main,s3_prod. Default is local_main."
+        help.fr = "Liste de noms séparés par des virgules, par ex. : local_main,s3_prod. La valeur par défaut est local_main."
         type = "string"
         bind = "OXICLOUD_STORAGE_ENTRIES:__INSTALL_DIR__/oxicloud.local.env"
+
 
     [main.storage_s3]
     name.en = "S3 storage"
