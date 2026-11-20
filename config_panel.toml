@@ -35,7 +35,7 @@ name.fr = "Edition de documents office"
     ask.en = "Enable"
     ask.fr = "Activer"
     default = false
-    bind = "OXICLOUD_NEXTCLOUD_ENABLED:__INSTALL_DIR__/oxicloud.env"
+    bind = "OXICLOUD_ENABLE_NEXTCLOUD:__INSTALL_DIR__/oxicloud.env"
 
 [main.nextcloud_compatibility.version]
     type = "string"
