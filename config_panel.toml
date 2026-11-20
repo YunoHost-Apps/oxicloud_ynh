@@ -14,6 +14,8 @@ services = ["__APP__", "nginx"]
         ask.fr = "Activer l'édition de documents office"
         type = "boolean"
         default = false
+        help.en = "Enable WOPI integration for office document editing. Used with Collabora, OnlyOffice, or other WOPI-compatible editors"
+        help.fr = "Activer l'intégration WOPI pour l'édition de documents bureautiques. À utiliser avec Collabora, OnlyOffice ou d'autres éditeurs compatibles WOPI"
         bind = "OXICLOUD_WOPI_ENABLED:__INSTALL_DIR__/oxicloud.local.env"
 
         [main.document_server.url]
@@ -44,6 +46,8 @@ services = ["__APP__", "nginx"]
         type = "select"
         choices = ["28.0.4", "34.0.0"]
         default = "28.0.4"
+        help.en = "The emulated Nextcloud version is reported to clients. Clients use this information to determine which protocol features to enable."
+        help.fr = "La version émulée de Nextcloud est communiquée aux clients. Ceux-ci utilisent ces informations pour déterminer les fonctionnalités du protocole à activer."
         visible = "enable_compatibility"
         bind = "OXICLOUD_NEXTCLOUD_VERSION:__INSTALL_DIR__/oxicloud.local.env"
 
@@ -55,9 +59,9 @@ services = ["__APP__", "nginx"]
         [main.storage.storage_backend]
         ask.en = "Storage backends"
         ask.fr = "Storage backends"
+        type = "string"
         help.en = "A comma-separated allowlist of names, e.g. local_main,s3_prod. Default is local_main."
         help.fr = "Liste de noms séparés par des virgules, par ex. : local_main,s3_prod. La valeur par défaut est local_main."
-        type = "string"
         bind = "OXICLOUD_STORAGE_ENTRIES:__INSTALL_DIR__/oxicloud.local.env"
 
 
