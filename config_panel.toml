@@ -107,3 +107,21 @@ services = ["__APP__", "nginx"]
         ask.fr = "Force path style"
         type = "boolean"
         bind = "OXICLOUD_STORAGE_s3_prod_S3_FORCE_PATH_STYLE:__INSTALL_DIR__/oxicloud.local.env"
+
+
+    [main.encryption]
+    name.en = "Encryption"
+    name.fr = "Chiffrement"
+
+        [main.encryption.encryption_enabled]
+        ask.en = "Enable encryption"
+        ask.fr = "Activer le chiffrement"
+        type = "boolean"
+        default = false
+        bind = "OXICLOUD_STORAGE_ENCRYPTION_ENABLED:__INSTALL_DIR__/oxicloud.local.env"
+
+        [main.encryption.encryption_key]
+        ask.en = "Encryption key"
+        ask.fr = "Clé de chiffrement"
+        type = "string"
+        bind = "OXICLOUD_ENCRYPTION_KEY:__INSTALL_DIR__/oxicloud.local.env"
