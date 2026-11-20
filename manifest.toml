@@ -7,7 +7,7 @@ name = "OxiCloud"
 description.en = "Secure & lightweight self-hosted cloud storage"
 description.fr = "Service de stockage cloud auto-hébergé, sécurisé et léger"
 
-version = "0.10.1~ynh1"
+version = "0.10.1~ynh2"
 
 maintainers = ["eric_G"]
 
@@ -19,7 +19,7 @@ code = "https://github.com/AtalayaLabs/OxiCloud/"
 [integration]
 yunohost = ">= 12.1.40"
 helpers_version = "2.1"
-architectures = "all"
+architectures = ["amd64", "arm64"]
 multi_instance = true
 
 ldap = false
@@ -74,6 +74,7 @@ ram.runtime = "90M"
 
     [resources.permissions]
     main.url = "/"
+    main.auth_header = false
     api.url = "/api"
     api.auth_header = false
     api.show_tile = false
