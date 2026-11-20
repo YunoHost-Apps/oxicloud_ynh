@@ -14,12 +14,29 @@ ynh_script_progression "Stopping $app's systemd service..."
 ynh_systemctl --service="$app" --action="stop"
 
 #=================================================
+# ENSURE DOWNWARD COMPATIBILITY
+#=================================================
+ynh_script_progression "Ensuring downward compatibility..."
+
+ynh_app_setting_set_default --key=secret --value=$(ynh_string_random --length=32)
+ynh_app_setting_set_default --key=email --value=$(ynh_user_get_info --username=$admin --key=mail)
+
+#=================================================
 # MODIFY URL IN NGINX CONF
 #=================================================
 ynh_script_progression "Updating NGINX web server configuration..."
 
 # this will most likely adjust NGINX config correctly
 ynh_config_change_url_nginx
+
+#=================================================
+# APP INITIAL CONFIGURATION
+#=================================================
+ynh_script_progression "Adding $app's configuration files..."
+
+ynh_config_add --template="oxicloud.env" --destination="$install_dir/oxicloud.env"
+
+chmod 0640 "$install_dir/oxicloud.env"
 
 #=================================================
 # START SYSTEMD SERVICE
