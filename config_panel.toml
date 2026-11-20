@@ -41,7 +41,8 @@ services = ["__APP__", "nginx"]
         [main.nextcloud_compatibility.version]
         ask.en = "Nextcloud version"
         ask.fr = "Version de Nextcloud"
-        type = "string"
+        type = "select"
+        choices = ["28.0.4", "34.0.0"]
         default = "28.0.4"
         visible = "enable_compatibility"
         bind = "OXICLOUD_NEXTCLOUD_VERSION:__INSTALL_DIR__/oxicloud.local.env"
