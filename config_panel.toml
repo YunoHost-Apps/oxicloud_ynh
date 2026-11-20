@@ -72,6 +72,9 @@ services = ["__APP__", "nginx"]
         [main.storage_s3.backend]
         ask.en = "S3 backend"
         ask.fr = "S3 backend"
+        type = "select"
+        choices = ["local", "s3", "azure"]
+        default = "s3"
         bind = "OXICLOUD_STORAGE_s3_prod_BACKEND:__INSTALL_DIR__/oxicloud.local.env"
 
         [main.storage_s3.endpoint]
