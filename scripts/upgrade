@@ -22,12 +22,18 @@ ynh_app_setting_set_default --key=secret --value=$(ynh_string_random --length=32
 ynh_app_setting_set_default --key=email --value=$(ynh_user_get_info --username=$admin --key=mail)
 ynh_app_setting_set_default --key=protect_against_basic_auth_spoofing --value=false
 
+opaque_setup=$(ynh_app_setting_get --app=$app --key=opaque_setup)
+if [ -z "$opaque_setup" ]; then
+  opaque_setup=$(ynh_exec_as_app "$install_dir/oxicloud" opaque setup)
+  ynh_app_setting_set --key=opaque_setup --value="$opaque_setup"
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="oxicloud.env"
+ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="oxicloud.env oxicloud.local.env"
 
 chmod +x "$install_dir/oxicloud"
 
@@ -38,7 +44,7 @@ ynh_script_progression "Updating $app's configuration files..."
 
 ynh_config_add --template="oxicloud.env" --destination="$install_dir/oxicloud.env"
 
-chmod 0640 "$install_dir/oxicloud.env"
+chmod 0640 "$install_dir/oxicloud.env" "$install_dir/oxicloud.local.env"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATION
