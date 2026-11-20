@@ -13,7 +13,7 @@ services = ["__APP__", "nginx"]
         ask.en = "Enable office document editing"
         ask.fr = "Activer l'édition de documents office"
         type = "boolean"
-        default = true
+        default = false
         bind = "OXICLOUD_WOPI_ENABLED:__INSTALL_DIR__/oxicloud.local.env"
 
         [main.document_server.url]
